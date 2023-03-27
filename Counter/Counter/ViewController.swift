@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class ViewController: UIViewController {
     
@@ -27,16 +26,17 @@ class ViewController: UIViewController {
         result.text = String(counter)
         
         history.text = "История изменений:\n"
+        history.isEditable = false
     }
     
-    @IBAction func increase(_ sender: Any) {
+    @IBAction private func increase(_ sender: Any) {
         counter += 1
         result.text = "Значение счётчика: " + String(counter)
         let event = "\(date): значение изменено на +1\n"
         history.text.append(event)
     }
 
-    @IBAction func decrease(_ sender: Any) {
+    @IBAction private func decrease(_ sender: Any) {
         if counter != 0 {
             counter -= 1
             let event = "\(date): значение изменено на -1\n"
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func nullify(_ sender: Any) {
+    @IBAction private func nullify(_ sender: Any) {
         counter = 0
         result.text = String(counter)
         
